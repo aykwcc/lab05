@@ -1,12 +1,29 @@
+#include <stdio.h>
+#include <string.h>
 
 void copy(char *psource, char *ptarget, unsigned num_char)
 {
-    // TODO: write your code here
+    unsigned count = 0;
+    while (count < num_char && *psource != '\0') {
+        *ptarget = *psource;
+        ptarget++;
+        psource++;
+        count++;
+    }
+    *ptarget = '\0';
 }
 
 void concatenate(char *psrc1, char *psrc2, char *ptarget, unsigned buffer_size)
 {
-    // TODO: write your code here
+    unsigned len1;
+    len1 = (unsigned)strlen(psrc1);        /* standard library function */
+    if (len1 > buffer_size - 1) {          /* reserve 1 byte for '\0' */
+        len1 = buffer_size - 1;
+    }
+    copy(psrc1, ptarget, len1);
+    if (len1 < buffer_size - 1) {
+        copy(psrc2, ptarget + len1, buffer_size - 1 - len1);
+    }
 }
 
 // DO NOT change the code below
