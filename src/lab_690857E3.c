@@ -16,8 +16,8 @@ void copy(char *psource, char *ptarget, unsigned num_char)
 void concatenate(char *psrc1, char *psrc2, char *ptarget, unsigned buffer_size)
 {
     unsigned len1;
-    len1 = (unsigned)strlen(psrc1);        /* standard library function */
-    if (len1 > buffer_size - 1) {          /* reserve 1 byte for '\0' */
+    len1 = (unsigned)strlen(psrc1);
+    if (len1 > buffer_size - 1) {
         len1 = buffer_size - 1;
     }
     copy(psrc1, ptarget, len1);
